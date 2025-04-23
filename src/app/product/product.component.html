@@ -1,0 +1,19 @@
+<div *ngIf="!ukryty"
+     [ngStyle]="{ 'border': product.czyPromocja ? '2px solid red' : '1px solid black' }"
+     style="margin: 10px; padding: 10px;">
+  <table>
+    <tr>
+      <td>{{ product.nazwa }}</td>
+      <td>{{ product.cena | currency:'PLN' }}</td>
+      <td>{{ product.dataUtworzenia | date:'dd.MM.yyyy' }}</td>
+      <td><button (click)="dodaj()">Dodaj do koszyka</button></td>
+      <td>Liczba sztuk: {{ product.liczbaSztuk }}</td>
+    </tr>
+  </table>
+</div>
+<div *ngIf="ukryty">
+  {{ product.nazwa }}
+</div>
+<button (click)="toggleWidok()">
+  {{ ukryty ? 'Rozwiń' : 'Zwiń' }}
+</button>
